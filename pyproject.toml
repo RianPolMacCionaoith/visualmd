@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visualmd"
+version = "0.1.0"
+description = "Camera-friendly QR sheet transport for Markdown and source code"
+requires-python = ">=3.10"
+dependencies = [
+  "qrcode[pil]>=7.4",
+  "Pillow>=10",
+]
+
+[project.optional-dependencies]
+decode = [
+  "opencv-python>=4.8",
+  "pyzbar>=0.1.9",
+]
+dev = [
+  "pytest>=8",
+]
+
+[project.scripts]
+visualmd = "visualmd.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["visualmd*"]
+
+[project.urls]
+Homepage = "https://github.com/RianPolMacCionaoith/visualmd"
+Issues = "https://github.com/RianPolMacCionaoith/visualmd/issues"
